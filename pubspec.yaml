@@ -1,0 +1,9 @@
+name: flutter_milibris_monorepo
+publish_to: none
+
+environment:
+  sdk: ^3.11.0
+
+dev_dependencies:
+  melos: ^6.1.0
+  theodo_analysis: ^1.11.0

@@ -1,0 +1,26 @@
+# Dart/Flutter
+.dart_tool/
+/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/doc/api/
+**/ios/Flutter/.last_build_id
+
+# Android build outputs
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Generated
+lib/generated_plugin_registrant.dart
+app.*.symbols
+app.*.map.json
+
+# OS
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws

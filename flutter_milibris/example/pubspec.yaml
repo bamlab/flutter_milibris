@@ -1,0 +1,20 @@
+name: flutter_milibris_example
+description: Demonstrates how to use the flutter_milibris plugin.
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_milibris: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  theodo_analysis: ^1.11.0
+
+flutter:
+  uses-material-design: true

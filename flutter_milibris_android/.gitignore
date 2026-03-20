@@ -1,0 +1,14 @@
+# Dart/Flutter
+.dart_tool/
+build/
+/pubspec.lock
+**/doc/api/
+
+# OS
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws

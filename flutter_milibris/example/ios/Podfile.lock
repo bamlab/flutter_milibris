@@ -2,13 +2,19 @@ PODS:
   - Flutter (1.0.0)
   - flutter_milibris_ios (0.0.1):
     - Flutter
+    - MiLibrisReaderSDK
   - integration_test (0.0.1):
     - Flutter
+  - MiLibrisReaderSDK (1.11.1)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_milibris_ios (from `.symlinks/plugins/flutter_milibris_ios/ios`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
+
+SPEC REPOS:
+  trunk:
+    - MiLibrisReaderSDK
 
 EXTERNAL SOURCES:
   Flutter:
@@ -20,8 +26,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  flutter_milibris_ios: 7e99f88456a370f0cfe5caf8eb605336f1f23e1c
+  flutter_milibris_ios: 6fb5a301ac61754b777bead58a1d3ce855fd0bb7
   integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
+  MiLibrisReaderSDK: 8ebd4cea715a6d979282feccc5440f24214d7cca
 
 PODFILE CHECKSUM: 0dbd5a87e0ace00c9610d2037ac22083a01f861d
 

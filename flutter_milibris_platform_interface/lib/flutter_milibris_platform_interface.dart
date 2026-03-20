@@ -1,4 +1,4 @@
-import 'package:flutter_milibris_platform_interface/src/method_channel_flutter_milibris.dart';
+import 'package:flutter_milibris_platform_interface/src/default_flutter_milibris.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 /// {@template flutter_milibris_platform}
@@ -17,11 +17,11 @@ abstract class FlutterMilibrisPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static FlutterMilibrisPlatform _instance = MethodChannelFlutterMilibris();
+  static FlutterMilibrisPlatform _instance = DefaultFlutterMilibris();
 
   /// The default instance of [FlutterMilibrisPlatform] to use.
   ///
-  /// Defaults to [MethodChannelFlutterMilibris].
+  /// Defaults to [DefaultFlutterMilibris].
   static FlutterMilibrisPlatform get instance => _instance;
 
   /// Platform-specific plugins should set this with their own platform-specific
@@ -31,6 +31,9 @@ abstract class FlutterMilibrisPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  /// Return the current platform name.
-  Future<String?> getPlatformName();
+  /// Extract the archive and return the path to the extracted files.
+  Future<void> extractArchive(String tempPath, String destPath);
+
+  /// Open the extracted files with the appropriate application.
+  Future<void> open(String destPath);
 }

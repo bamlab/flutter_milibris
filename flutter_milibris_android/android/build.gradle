@@ -9,7 +9,8 @@ version '1.0-SNAPSHOT'
 allprojects {
     repositories {
         google()
-        mavenCentral()
+        mavenCentral()        
+        maven { url "https://maven-android-sdk.milibris.net/" }
     }
 }
 
@@ -54,4 +55,12 @@ android {
             }
         }
     }
+}
+
+dependencies {
+    def miLibrisReader = "1.18.0"
+    api("com.milibris:one-reader:${miLibrisReader}") {
+        exclude group: "androidx.lifecycle"
+    }
+    api "com.milibris:milibris-reader:${miLibrisReader}"
 }

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "ios-milibris-reader-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/miLibris/ios-milibris-reader-sdk.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f5d60d48ea4824c9cfb5f170a2848811d1dde79c"
+      }
+    }
+  ],
+  "version" : 2
+}

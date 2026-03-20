@@ -1,0 +1,27 @@
+output:
+  dart:
+    path: lib/flutter_milibris_bindings.g.dart
+    structure: single_file
+
+# Use the downloaded JARs locally
+class_path:
+  - '.jnigen_deps/classes.jar'
+  - '.jnigen_deps/tasks/classes.jar'
+  - '.jnigen_deps/one-reader-classes.jar'
+
+android_sdk_config:
+  sdk_root: '/Users/guillaume/Library/Android/sdk' #TODO(guillaume): add to readme to put user's path
+  versions:
+    - '35'
+
+classes:
+  # Milibris API
+  - 'com.milibris.foundation.Foundation'
+  - 'com.milibris.foundation.FoundationContext'
+  - 'com.milibris.foundation.CompleteArchive'
+  - 'com.milibris.onereader.data.session.ReaderSettings'
+  - 'com.milibris.onereader.feature.OneReaderActivity'
+  - 'com.milibris.reader.XmlPdfReaderDataSource'
+  - 'com.milibris.reader.advert.MiLibrisPageAdRepository'
+summarizer:
+  backend: asm

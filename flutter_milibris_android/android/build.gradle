@@ -6,18 +6,8 @@ plugins {
 group 'com.milibris.flutter'
 version '1.0-SNAPSHOT'
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 android {
-    if (project.android.hasProperty("namespace")) {
-        namespace 'com.milibris.flutter'
-    }
-
+    namespace 'com.milibris.flutter'
     compileSdk 34
 
     compileOptions {
@@ -29,29 +19,25 @@ android {
         jvmTarget = '1.8'
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-    }
-
     defaultConfig {
         minSdkVersion 19
-    }
-
-    dependencies {
-        testImplementation 'org.jetbrains.kotlin:kotlin-test'
-        testImplementation 'org.mockito:mockito-core:5.0.0'
     }
 
     testOptions {
         unitTests.all {
             useJUnitPlatform()
-
-            testLogging {
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
-            }
         }
     }
+}
+
+def miLibrisReader = "1.16.1"
+
+dependencies {
+    api("com.milibris:one-reader:${miLibrisReader}") {
+        exclude group: "androidx.lifecycle"
+    }
+    api "com.milibris:milibris-reader:${miLibrisReader}"
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.mockito:mockito-core:5.0.0'
 }

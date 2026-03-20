@@ -2,9 +2,10 @@ import 'package:flutter_milibris_platform_interface/flutter_milibris_platform_in
 
 FlutterMilibrisPlatform get _platform => FlutterMilibrisPlatform.instance;
 
-/// Returns the name of the current platform.
-Future<String> getPlatformName() async {
-  final platformName = await _platform.getPlatformName();
-  if (platformName == null) throw Exception('Unable to get platform name.');
-  return platformName;
+Future<void> extractArchive(String tempPath, String destPath) async {
+  await _platform.extractArchive(tempPath, destPath);
+}
+
+Future<void> open(String destPath) async {
+  await _platform.open(destPath);
 }

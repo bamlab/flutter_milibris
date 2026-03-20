@@ -1,0 +1,26 @@
+name: flutter_milibris_android
+description: Android implementation of the flutter_milibris plugin
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.0
+
+flutter:
+  plugin:
+    implements: flutter_milibris
+    platforms:
+      android:
+        package: com.milibris.flutter
+        pluginClass: FlutterMilibrisPlugin
+        dartPluginClass: FlutterMilibrisAndroid
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_milibris_platform_interface: 0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+  very_good_analysis: ^10.2.0

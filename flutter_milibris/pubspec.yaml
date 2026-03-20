@@ -1,0 +1,28 @@
+name: flutter_milibris
+description: A Flutter bridge to connect Milibis SDKs
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: flutter_milibris_android
+      ios:
+        default_package: flutter_milibris_ios
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_milibris_android: 0.1.0
+  flutter_milibris_ios: 0.1.0
+  flutter_milibris_platform_interface: 0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  plugin_platform_interface: ^2.1.8
+  very_good_analysis: ^10.2.0

@@ -30,13 +30,13 @@ android {
     }
 }
 
-def miLibrisReader = "1.16.1"
+def miLibrisReaderVersion = "1.16.1"
 
 dependencies {
-    api("com.milibris:one-reader:${miLibrisReader}") {
+    api("com.milibris:one-reader:${miLibrisReaderVersion}") {
         exclude group: "androidx.lifecycle"
     }
-    api "com.milibris:milibris-reader:${miLibrisReader}"
+    api "com.milibris:milibris-reader:${miLibrisReaderVersion}"
 
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation 'org.mockito:mockito-core:5.0.0'

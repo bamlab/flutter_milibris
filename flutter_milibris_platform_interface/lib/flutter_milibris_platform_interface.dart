@@ -9,7 +9,8 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 ///
 /// Extending this class (using `extends`) ensures that the subclass will get
 /// the default implementation, while platform implementations that `implements`
-/// this interface will be broken by newly added [FlutterMilibrisPlatform] methods.
+/// this interface will be broken by newly added [FlutterMilibrisPlatform]
+/// methods.
 /// {@endtemplate}
 abstract class FlutterMilibrisPlatform extends PlatformInterface {
   /// {@macro flutter_milibris_platform}
@@ -25,7 +26,8 @@ abstract class FlutterMilibrisPlatform extends PlatformInterface {
   static FlutterMilibrisPlatform get instance => _instance;
 
   /// Platform-specific plugins should set this with their own platform-specific
-  /// class that extends [FlutterMilibrisPlatform] when they register themselves.
+  /// class that extends [FlutterMilibrisPlatform] when they register
+  /// themselves.
   static set instance(FlutterMilibrisPlatform instance) {
     PlatformInterface.verify(instance, _token);
     _instance = instance;

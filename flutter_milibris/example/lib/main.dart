@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
       if (destDir.existsSync()) destDir.deleteSync(recursive: true);
       destDir.createSync();
 
-      await extractArchive(archivePath, destDir.path);
+      await FlutterMilibris.extractArchive(archivePath, destDir.path);
 
       final archiveSize = File(archivePath).lengthSync();
       final extractedSize = destDir
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
       _status = 'Opening reader…';
     });
     try {
-      await open(dest);
+      await FlutterMilibris.open(dest);
       setState(() => _status = 'Reader opened.');
     } on Exception catch (e) {
       setState(() => _status = 'Error: $e');

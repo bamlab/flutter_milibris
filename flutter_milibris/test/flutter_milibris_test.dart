@@ -11,33 +11,61 @@ class MockFlutterMilibrisPlatform extends Mock
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group(FlutterMilibrisPlatform, () {
-    late FlutterMilibrisPlatform flutterMilibrisPlatform;
+  group(FlutterMilibris, () {
+    late MockFlutterMilibrisPlatform flutterMilibrisPlatform;
 
     setUp(() {
       flutterMilibrisPlatform = MockFlutterMilibrisPlatform();
       FlutterMilibrisPlatform.instance = flutterMilibrisPlatform;
     });
 
-    group('getPlatformName', () {
-      test('returns correct name when platform implementation exists',
-          () async {
-        const platformName = '__test_platform__';
+    group('extractArchive', () {
+      test('delegates to platform', () async {
         when(
-          () => flutterMilibrisPlatform.getPlatformName(),
-        ).thenAnswer((_) async => platformName);
+          () => flutterMilibrisPlatform.extractArchive(any(), any()),
+        ).thenAnswer((_) async {});
 
-        final actualPlatformName = await getPlatformName();
-        expect(actualPlatformName, equals(platformName));
+        await FlutterMilibris.extractArchive('/tmp/archive.zip', '/tmp/dest');
+
+        verify(
+          () => flutterMilibrisPlatform.extractArchive(
+            '/tmp/archive.zip',
+            '/tmp/dest',
+          ),
+        ).called(1);
       });
 
-      test('throws exception when platform implementation is missing',
-          () async {
+      test('propagates platform exception', () async {
         when(
-          () => flutterMilibrisPlatform.getPlatformName(),
-        ).thenAnswer((_) async => null);
+          () => flutterMilibrisPlatform.extractArchive(any(), any()),
+        ).thenThrow(Exception('extraction failed'));
 
-        expect(getPlatformName, throwsException);
+        expect(
+          () => FlutterMilibris.extractArchive('/tmp/archive.zip', '/tmp/dest'),
+          throwsException,
+        );
+      });
+    });
+
+    group('open', () {
+      test('delegates to platform', () async {
+        when(
+          () => flutterMilibrisPlatform.open(any()),
+        ).thenAnswer((_) async {});
+
+        await FlutterMilibris.open('/tmp/dest');
+
+        verify(
+          () => flutterMilibrisPlatform.open('/tmp/dest'),
+        ).called(1);
+      });
+
+      test('propagates platform exception', () async {
+        when(
+          () => flutterMilibrisPlatform.open(any()),
+        ).thenThrow(Exception('open failed'));
+
+        expect(() => FlutterMilibris.open('/tmp/dest'), throwsException);
       });
     });
   });

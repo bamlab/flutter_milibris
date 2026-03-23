@@ -23,8 +23,8 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
     'addFlags',
     '(I)Landroid/content/Intent;',
   );
-  static final JInstanceMethodId _idStartActivity =
-      _contextClass.instanceMethodId(
+  static final JInstanceMethodId _idStartActivity = _contextClass
+      .instanceMethodId(
         'startActivity',
         '(Landroid/content/Intent;)V',
       );
@@ -35,8 +35,8 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
 
   @override
   Future<void> extractArchive(String archivePath, String destPath) async {
-    final ctx = JObject.fromReference(Jni.getCachedApplicationContext());
-    final foundationContext = Foundation.createContext(ctx);
+    final context = JObject.fromReference(Jni.getCachedApplicationContext());
+    final foundationContext = Foundation.createContext(context);
     if (foundationContext == null) {
       throw Exception('Failed to create FoundationContext');
     }
@@ -52,21 +52,21 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
       }
     } finally {
       foundationContext.release();
-      ctx.release();
+      context.release();
     }
   }
 
   @override
   Future<void> open(String destPath) async {
-    final ctx = JObject.fromReference(Jni.getCachedApplicationContext());
+    final context = JObject.fromReference(Jni.getCachedApplicationContext());
 
     final settings = ReaderSettings.new$2();
 
     final dataSource = XmlPdfReaderDataSource(settings)
-      ..init(ctx, destPath.toJString());
+      ..init(context, destPath.toJString());
 
     final intent = OneReaderActivity.newIntent(
-      ctx,
+      context,
       settings,
       dataSource, // implements ProductRepository
       null, // readerListener
@@ -78,11 +78,11 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
 
     // FLAG_ACTIVITY_NEW_TASK required when launching from application context.
     _idAddFlags.call(intent, JObject.type, [0x10000000]).release();
-    _idStartActivity.call(ctx, const jvoidType(), [intent]);
+    _idStartActivity.call(context, const jvoidType(), [intent]);
 
     settings.release();
     dataSource.release();
     intent.release();
-    ctx.release();
+    context.release();
   }
 }

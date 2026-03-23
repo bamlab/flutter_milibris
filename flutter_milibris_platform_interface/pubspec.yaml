@@ -1,6 +1,8 @@
 name: flutter_milibris_platform_interface
 description: A common platform interface for the flutter_milibris plugin.
 version: 0.1.0+1
+homepage: https://github.com/bamlab/flutter_milibris
+repository: https://github.com/bamlab/flutter_milibris
 
 environment:
   sdk: ^3.11.0

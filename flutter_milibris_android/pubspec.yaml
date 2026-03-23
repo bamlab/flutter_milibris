@@ -1,6 +1,8 @@
 name: flutter_milibris_android
 description: Android implementation of the flutter_milibris plugin
 version: 0.1.0+1
+homepage: https://github.com/bamlab/flutter_milibris
+repository: https://github.com/bamlab/flutter_milibris
 
 environment:
   sdk: ^3.11.0
@@ -17,7 +19,7 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_milibris_platform_interface: 0.1.0
+  flutter_milibris_platform_interface: ^0.1.0
   jni: ^0.14.2
 
 dev_dependencies:

@@ -1,6 +1,10 @@
-# Testing archive extraction
+# Example app
 
-## Android
+> For setup instructions (Maven repo, desugaring, licence keys, pod install), see the [plugin README](../README.md#setup).
+
+## Testing archive extraction
+
+### Android
 
 The example app reads the archive from external storage using `getExternalStorageDirectory()`,
 which resolves to:
@@ -9,22 +13,22 @@ which resolves to:
 /storage/emulated/0/Android/data/your.packageName.here/files/
 ```
 
-### Steps
+#### Steps
 
-#### 1. Install the app
+##### 1. Install the app
 
 ```sh
 flutter run
 ```
 
-#### 2. Push the archive via adb
+##### 2. Push the archive via adb
 
 ```sh
-adb push path/to/{fileName}.complete \
-  /storage/emulated/0/Android/data/your.packageName.here/files/{fileName}.complete
+adb push path/to/fc7558b2-3baf-46d5-82b1-7287a44cd269.complete \
+  /storage/emulated/0/Android/data/your.packageName.here/files/fc7558b2-3baf-46d5-82b1-7287a44cd269.complete
 ```
 
-#### 3. Verify the file is there
+##### 3. Verify the file is there
 
 ```sh
 adb shell ls /storage/emulated/0/Android/data/your.packageName.here/files/
@@ -33,15 +37,14 @@ adb shell ls /storage/emulated/0/Android/data/your.packageName.here/files/
 Expected output:
 
 ```
-{fileName}.complete
+fc7558b2-3baf-46d5-82b1-7287a44cd269.complete
 ```
 
-#### 4. Tap "Test Extraction"
+##### 4. Tap "Test Extraction"
 
-The status area will show the archive size and extracted size on success, or an error message
-on failure.
+The status area will show the archive size and extracted size on success, or an error message on failure.
 
-### Notes
+#### Notes
 
 - On an emulator the path above is always writable via adb without extra setup.
 - The extracted output lands in `$TMPDIR/mili_out/` on the device. You can inspect it with:
@@ -52,7 +55,7 @@ on failure.
 
 ---
 
-## iOS
+### iOS
 
 The example app reads the archive from the app's support directory using
 `getApplicationSupportDirectory()`, which resolves to:
@@ -61,15 +64,15 @@ The example app reads the archive from the app's support directory using
 /var/mobile/Containers/Data/Application/<UUID>/Library/Application Support/
 ```
 
-### Steps
+#### Steps
 
-#### 1. Install the app
+##### 1. Install the app
 
 ```sh
 flutter run
 ```
 
-#### 2. Copy the archive into the simulator
+##### 2. Copy the archive into the simulator
 
 ```bash
 # 1. Find the booted simulator UUID
@@ -81,20 +84,17 @@ echo $APP_DIR
 
 # 3. Copy the file into Application Support
 mkdir -p "$APP_DIR/Library/Application Support"
-cp /path/to/{fileName}.complete "$APP_DIR/Library/Application Support/"
+cp /path/to/fc7558b2-3baf-46d5-82b1-7287a44cd269.complete "$APP_DIR/Library/Application Support/"
 
 # 4. Verify
 ls -lh "$APP_DIR/Library/Application Support/"
 ```
 
-The app reads from `getApplicationSupportDirectory()` which maps to `<container>/Library/Application Support/`.
+##### 3. Tap "Test Extraction"
 
-#### 3. Tap "Test Extraction"
+The status area will show the archive size and extracted size on success, or an error message on failure.
 
-The status area will show the archive size and extracted size on success, or an error message
-on failure.
-
-### Notes
+#### Notes
 
 - `getApplicationSupportDirectory()` maps to `Library/Application Support/` inside the app
   sandbox — no extra entitlements required.

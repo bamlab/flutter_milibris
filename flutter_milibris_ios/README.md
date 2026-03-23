@@ -1,14 +1,12 @@
 # flutter_milibris_ios
 
-[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
+The iOS implementation of [`flutter_milibris`](../flutter_milibris).
 
-The ios implementation of `flutter_milibris`.
+## Overview
 
-## Usage
+This package is [endorsed](https://flutter.dev/docs/development/packages-and-plugins/developing-packages#endorsed-federated-plugin), so it is automatically included when you depend on `flutter_milibris`. You do not need to add it directly.
 
-This package is [endorsed][endorsed_link], which means you can simply use `flutter_milibris`
-normally. This package will be automatically included in your app when you do.
+It uses [ffigen](https://pub.dev/packages/ffigen)-generated bindings and the `objective_c` package to call into the MiLibrisReaderSDK (distributed as an xcframework via Swift Package Manager):
 
-[endorsed_link]: https://flutter.dev/docs/development/packages-and-plugins/developing-packages#endorsed-federated-plugin
-[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
+- `extractArchive` — extracts a Milibris archive via `MLArchive.extract(_:inDirectory:error:)`.
+- `open` — calls the native `milibris_open_reader` C function (defined in the Swift bridge) to launch the reader UI.

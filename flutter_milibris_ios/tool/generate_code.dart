@@ -1,3 +1,12 @@
+// Generates lib/flutter_milibris_bindings.g.dart from the MiLibrisReaderSDK headers.
+//
+// Usage (run from the flutter_milibris_ios/ directory):
+//
+//   dart run tool/generate_code.dart
+//
+// The SDK headers are resolved from the local SPM build cache. If not present,
+// run `swift package resolve` in ios/ first (or build the example app in Xcode).
+
 import 'dart:io';
 
 import 'package:ffigen/ffigen.dart';

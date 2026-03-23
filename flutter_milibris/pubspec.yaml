@@ -1,6 +1,10 @@
 name: flutter_milibris
-description: A Flutter bridge to connect Milibis SDKs
+description: >-
+  A Flutter plugin that bridges Milibris SDKs, enabling encrypted archive
+  extraction and embedded reader functionality on Android and iOS.
 version: 0.1.0+1
+homepage: https://github.com/bamlab/flutter_milibris
+repository: https://github.com/bamlab/flutter_milibris
 
 environment:
   sdk: ^3.11.0

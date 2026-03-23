@@ -1,0 +1,44 @@
+name: flutter_milibris_monorepo
+
+packages:
+  - flutter_milibris_platform_interface
+  - flutter_milibris_android
+  - flutter_milibris_ios
+  - flutter_milibris
+  - flutter_milibris/example
+
+command:
+  publish:
+    ignore:
+      - flutter_milibris_example
+
+scripts:
+  analyze:
+    description: Run flutter analyze on all packages.
+    run: flutter analyze --no-fatal-infos
+    exec:
+      concurrency: 1
+
+  test:
+    description: Run flutter test on all packages that have tests.
+    run: flutter test
+    exec:
+      concurrency: 1
+    packageFilters:
+      dirExists: test
+
+  generate:android:
+    description: Regenerate Android JNI bindings via jnigen.
+    run: dart run jnigen --config jnigen.yaml
+    exec:
+      concurrency: 1
+    packageFilters:
+      scope: flutter_milibris_android
+
+  generate:ios:
+    description: Regenerate iOS FFI bindings via ffigen.
+    run: dart run tool/generate_code.dart
+    exec:
+      concurrency: 1
+    packageFilters:
+      scope: flutter_milibris_ios

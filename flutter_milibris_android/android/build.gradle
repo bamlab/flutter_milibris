@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.library"
+    id "kotlin-android"
+}
+
+group 'com.milibris.flutter'
+version '1.0-SNAPSHOT'
+
+android {
+    namespace 'com.milibris.flutter'
+    compileSdk 34
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    defaultConfig {
+        minSdkVersion 19
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+}
+
+def miLibrisReaderVersion = "1.16.1"
+
+dependencies {
+    api("com.milibris:one-reader:${miLibrisReaderVersion}") {
+        exclude group: "androidx.lifecycle"
+    }
+    api "com.milibris:milibris-reader:${miLibrisReaderVersion}"
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.mockito:mockito-core:5.0.0'
+}

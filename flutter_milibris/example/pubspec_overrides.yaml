@@ -1,0 +1,9 @@
+dependency_overrides:
+  flutter_milibris:
+    path: ..
+  flutter_milibris_android:
+    path: ../../flutter_milibris_android
+  flutter_milibris_ios:
+    path: ../../flutter_milibris_ios
+  flutter_milibris_platform_interface:
+    path: ../../flutter_milibris_platform_interface

@@ -1,0 +1,18 @@
+# Dart/Flutter
+.dart_tool/
+build/
+/pubspec.lock
+**/doc/api/
+
+# Swift Package Manager (ios/)
+.build/
+.swiftpm/
+
+# OS
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws

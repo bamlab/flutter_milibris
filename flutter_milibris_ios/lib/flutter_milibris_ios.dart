@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ffi' as ffi;
 
 import 'package:ffi/ffi.dart';
@@ -10,6 +11,13 @@ final void Function(ffi.Pointer<Utf8>) _openReader =
       ffi.Void Function(ffi.Pointer<Utf8>),
       void Function(ffi.Pointer<Utf8>)
     >('milibris_open_reader');
+
+final void Function(ffi.Pointer<Utf8>, ffi.Pointer<Utf8>)
+_openReaderWithConfig = ffi.DynamicLibrary.process()
+    .lookupFunction<
+      ffi.Void Function(ffi.Pointer<Utf8>, ffi.Pointer<Utf8>),
+      void Function(ffi.Pointer<Utf8>, ffi.Pointer<Utf8>)
+    >('milibris_open_reader_with_config');
 
 /// The iOS implementation of [FlutterMilibrisPlatform].
 class FlutterMilibrisIOS extends FlutterMilibrisPlatform {
@@ -47,10 +55,20 @@ class FlutterMilibrisIOS extends FlutterMilibrisPlatform {
   }
 
   @override
-  Future<void> open(String destPath) async {
+  Future<void> open(String destPath, [MilibrisUIConfig? uiConfig]) async {
     final pathPtr = destPath.toNativeUtf8();
     try {
-      _openReader(pathPtr);
+      if (uiConfig != null) {
+        final json = jsonEncode(uiConfig.toMap());
+        final configPtr = json.toNativeUtf8();
+        try {
+          _openReaderWithConfig(pathPtr, configPtr);
+        } finally {
+          malloc.free(configPtr);
+        }
+      } else {
+        _openReader(pathPtr);
+      }
     } finally {
       malloc.free(pathPtr);
     }

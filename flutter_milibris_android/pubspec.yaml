@@ -1,6 +1,6 @@
 name: flutter_milibris_android
 description: Android implementation of the flutter_milibris plugin
-version: 0.1.0+1
+version: 0.1.1
 homepage: https://github.com/bamlab/flutter_milibris
 repository: https://github.com/bamlab/flutter_milibris
 

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/alert_ui_config.dart';
 import 'package:flutter_milibris_platform_interface/src/ui_config/article_image_ui_config.dart';
 import 'package:flutter_milibris_platform_interface/src/ui_config/article_settings_ui_config.dart';
@@ -225,19 +227,16 @@ class ArticleReaderUIConfig {
   Map<String, dynamic> toMap() => {
     if (navigationBar != null) 'navigationBar': navigationBar!.toMap(),
     if (alert != null) 'alert': alert!.toMap(),
-    if (articleSettings != null)
-      'articleSettings': articleSettings!.toMap(),
+    if (articleSettings != null) 'articleSettings': articleSettings!.toMap(),
     if (articleImage != null) 'articleImage': articleImage!.toMap(),
     if (isSummaryEnabled != null) 'isSummaryEnabled': isSummaryEnabled,
     if (isTextToSpeechEnabled != null)
       'isTextToSpeechEnabled': isTextToSpeechEnabled,
     if (isAudioEnabled != null) 'isAudioEnabled': isAudioEnabled,
-    if (isImageCropEnabled != null)
-      'isImageCropEnabled': isImageCropEnabled,
+    if (isImageCropEnabled != null) 'isImageCropEnabled': isImageCropEnabled,
     if (onDeviceSmartCropEnabled != null)
       'onDeviceSmartCropEnabled': onDeviceSmartCropEnabled,
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (bottomBarBackgroundColor != null)
       'bottomBarBackgroundColor': bottomBarBackgroundColor!.toMap(),
     if (bottomBarTint != null) 'bottomBarTint': bottomBarTint!.toMap(),
@@ -247,14 +246,12 @@ class ArticleReaderUIConfig {
       'fisheyeLabelTextColor': fisheyeLabelTextColor!.toMap(),
     if (rubricBackgroundColor != null)
       'rubricBackgroundColor': rubricBackgroundColor!.toMap(),
-    if (rubricTextColor != null)
-      'rubricTextColor': rubricTextColor!.toMap(),
+    if (rubricTextColor != null) 'rubricTextColor': rubricTextColor!.toMap(),
     if (rubricBackgroundOverPrimeImageColor != null)
       'rubricBackgroundOverPrimeImageColor':
           rubricBackgroundOverPrimeImageColor!.toMap(),
     if (rubricTextOverPrimeImageColor != null)
-      'rubricTextOverPrimeImageColor':
-          rubricTextOverPrimeImageColor!.toMap(),
+      'rubricTextOverPrimeImageColor': rubricTextOverPrimeImageColor!.toMap(),
     if (primeImageGradientColor != null)
       'primeImageGradientColor': primeImageGradientColor!.toMap(),
     if (primeImageContentColor != null)
@@ -267,8 +264,7 @@ class ArticleReaderUIConfig {
     if (separatorColor != null) 'separatorColor': separatorColor!.toMap(),
     if (nextArticleArrowColor != null)
       'nextArticleArrowColor': nextArticleArrowColor!.toMap(),
-    if (fisheyeLabelFont != null)
-      'fisheyeLabelFont': fisheyeLabelFont!.toMap(),
+    if (fisheyeLabelFont != null) 'fisheyeLabelFont': fisheyeLabelFont!.toMap(),
     if (bottomBarFont != null) 'bottomBarFont': bottomBarFont!.toMap(),
     if (rubricFont != null) 'rubricFont': rubricFont!.toMap(),
     if (paragraph != null) 'paragraph': paragraph!.toMap(),
@@ -279,22 +275,17 @@ class ArticleReaderUIConfig {
     if (surtitle != null) 'surtitle': surtitle!.toMap(),
     if (author != null) 'author': author!.toMap(),
     if (caption != null) 'caption': caption!.toMap(),
-    if (captionOverImage != null)
-      'captionOverImage': captionOverImage!.toMap(),
+    if (captionOverImage != null) 'captionOverImage': captionOverImage!.toMap(),
     if (credit != null) 'credit': credit!.toMap(),
-    if (creditOverImage != null)
-      'creditOverImage': creditOverImage!.toMap(),
+    if (creditOverImage != null) 'creditOverImage': creditOverImage!.toMap(),
     if (note != null) 'note': note!.toMap(),
     if (heading != null) 'heading': heading!.toMap(),
     if (quote != null) 'quote': quote!.toMap(),
     if (quoteAuthor != null) 'quoteAuthor': quoteAuthor!.toMap(),
-    if (nextArticleTitle != null)
-      'nextArticleTitle': nextArticleTitle!.toMap(),
-    if (nextArticleInfos != null)
-      'nextArticleInfos': nextArticleInfos!.toMap(),
+    if (nextArticleTitle != null) 'nextArticleTitle': nextArticleTitle!.toMap(),
+    if (nextArticleInfos != null) 'nextArticleInfos': nextArticleInfos!.toMap(),
     if (interviewQuestion != null)
       'interviewQuestion': interviewQuestion!.toMap(),
-    if (interviewAnswer != null)
-      'interviewAnswer': interviewAnswer!.toMap(),
+    if (interviewAnswer != null) 'interviewAnswer': interviewAnswer!.toMap(),
   };
 }

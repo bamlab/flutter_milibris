@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for alert popins.
@@ -78,10 +80,8 @@ class AlertUIConfig {
       'overlayBackgroundColor': overlayBackgroundColor!.toMap(),
     if (contentBackgroundColor != null)
       'contentBackgroundColor': contentBackgroundColor!.toMap(),
-    if (titleTextColor != null)
-      'titleTextColor': titleTextColor!.toMap(),
-    if (messageTextColor != null)
-      'messageTextColor': messageTextColor!.toMap(),
+    if (titleTextColor != null) 'titleTextColor': titleTextColor!.toMap(),
+    if (messageTextColor != null) 'messageTextColor': messageTextColor!.toMap(),
     if (primaryButtonBackgroundColor != null)
       'primaryButtonBackgroundColor': primaryButtonBackgroundColor!.toMap(),
     if (primaryButtonTextColor != null)

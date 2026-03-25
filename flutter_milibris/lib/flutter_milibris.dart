@@ -3,11 +3,10 @@ import 'package:flutter_milibris_platform_interface/flutter_milibris_platform_in
 export 'flutter_milibris_config.dart';
 
 /// Entry point for the Milibris Flutter plugin.
-class FlutterMilibris {
+abstract final class FlutterMilibris {
   const FlutterMilibris._();
 
-  static FlutterMilibrisPlatform get _platform =>
-      FlutterMilibrisPlatform.instance;
+  static FlutterMilibrisPlatform get _platform => .instance;
 
   /// Extracts a Milibris archive to the given destination directory.
   ///

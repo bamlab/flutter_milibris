@@ -1,7 +1,7 @@
 // Uses JInstanceMethodId.call() to invoke Android framework methods
 // (addFlags, startActivity, getResources, getPackageName, getIdentifier)
 // not covered by generated bindings.
-// ignore_for_file: invalid_use_of_internal_member
+// ignore_for_file: invalid_use_of_internal_member, avoid-non-null-assertion
 import 'package:flutter_milibris_android/flutter_milibris_bindings.g.dart';
 import 'package:flutter_milibris_platform_interface/flutter_milibris_platform_interface.dart';
 import 'package:jni/jni.dart';
@@ -50,9 +50,9 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
 
   /// Resolves a drawable resource name to its integer resource ID.
   static JInteger? _resolveDrawable(JObject context, String name) {
-    final resources = _idGetResources.call(context, JObject.type, []);
-    final packageName = _idGetPackageName.call(context, JString.type, []);
-    final id = _idGetIdentifier.call(resources, const jintType(), [
+    final resources = _idGetResources(context, JObject.type, []);
+    final packageName = _idGetPackageName(context, JString.type, []);
+    final id = _idGetIdentifier(resources, const jintType(), [
       name.toJString(),
       'drawable'.toJString(),
       packageName,
@@ -60,7 +60,8 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
     resources.release();
     packageName.release();
     if (id == 0) return null;
-    return _idIntegerValueOf.call(_integerClass, JInteger.type, [id]);
+
+    return _idIntegerValueOf(_integerClass, JInteger.type, [id]);
   }
 
   /// Applies [uiConfig] to [settings].
@@ -100,10 +101,8 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
     }
 
     final articleReader = uiConfig.articleReader;
-    if (articleReader != null) {
-      if (articleReader.isTextToSpeechEnabled != null) {
-        settings.setTextToSpeechEnabled(articleReader.isTextToSpeechEnabled!);
-      }
+    if (articleReader != null && articleReader.isTextToSpeechEnabled != null) {
+      settings.setTextToSpeechEnabled(articleReader.isTextToSpeechEnabled!);
     }
 
     final navBar = uiConfig.navigationBar;
@@ -166,8 +165,8 @@ class FlutterMilibrisAndroid extends FlutterMilibrisPlatform {
     );
 
     // FLAG_ACTIVITY_NEW_TASK required when launching from application context.
-    _idAddFlags.call(intent, JObject.type, [0x10000000]).release();
-    _idStartActivity.call(context, const jvoidType(), [intent]);
+    _idAddFlags(intent, JObject.type, [0x10000000]).release();
+    _idStartActivity(context, const jvoidType(), [intent]);
 
     settings.release();
     dataSource.release();

@@ -1,10 +1,12 @@
+// ignore_for_file: lines_longer_than_80_chars, missing-test-assertion, no-empty-block, prefer-explicit-type-arguments
+
 import 'package:flutter_milibris/flutter_milibris.dart';
 import 'package:flutter_milibris_platform_interface/flutter_milibris_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class MockFlutterMilibrisPlatform extends Mock
+class _MockFlutterMilibrisPlatform extends Mock
     with MockPlatformInterfaceMixin
     implements FlutterMilibrisPlatform {}
 
@@ -12,10 +14,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group(FlutterMilibris, () {
-    late MockFlutterMilibrisPlatform flutterMilibrisPlatform;
+    late _MockFlutterMilibrisPlatform flutterMilibrisPlatform;
 
     setUp(() {
-      flutterMilibrisPlatform = MockFlutterMilibrisPlatform();
+      flutterMilibrisPlatform = _MockFlutterMilibrisPlatform();
       FlutterMilibrisPlatform.instance = flutterMilibrisPlatform;
     });
 
@@ -35,7 +37,7 @@ void main() {
         ).called(1);
       });
 
-      test('propagates platform exception', () async {
+      test('propagates platform exception', () {
         when(
           () => flutterMilibrisPlatform.extractArchive(any(), any()),
         ).thenThrow(Exception('extraction failed'));
@@ -55,12 +57,10 @@ void main() {
 
         await FlutterMilibris.open('/tmp/dest');
 
-        verify(
-          () => flutterMilibrisPlatform.open('/tmp/dest'),
-        ).called(1);
+        verify(() => flutterMilibrisPlatform.open('/tmp/dest')).called(1);
       });
 
-      test('propagates platform exception', () async {
+      test('propagates platform exception', () {
         when(
           () => flutterMilibrisPlatform.open(any()),
         ).thenThrow(Exception('open failed'));

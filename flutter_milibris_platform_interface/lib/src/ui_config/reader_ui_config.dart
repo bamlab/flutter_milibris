@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for top-level reader behaviour and appearance.
@@ -214,10 +216,8 @@ class ReaderUIConfig {
     if (debugBoxes != null) 'debugBoxes': debugBoxes,
     if (isFaceCropEnabled != null) 'isFaceCropEnabled': isFaceCropEnabled,
     if (isLandscapeOnly != null) 'isLandscapeOnly': isLandscapeOnly,
-    if (showReaderTutorials != null)
-      'showReaderTutorials': showReaderTutorials,
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (showReaderTutorials != null) 'showReaderTutorials': showReaderTutorials,
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (boxHighlightColor != null)
       'boxHighlightColor': boxHighlightColor!.toMap(),
     if (pagePlaceholderColor != null)
@@ -226,42 +226,36 @@ class ReaderUIConfig {
       'articleCapsuleHiddenBackgroundColor':
           articleCapsuleHiddenBackgroundColor!.toMap(),
     if (articleCapsuleHiddenTextColor != null)
-      'articleCapsuleHiddenTextColor':
-          articleCapsuleHiddenTextColor!.toMap(),
+      'articleCapsuleHiddenTextColor': articleCapsuleHiddenTextColor!.toMap(),
     if (articleCapsuleBottomBackgroundColor != null)
       'articleCapsuleBottomBackgroundColor':
           articleCapsuleBottomBackgroundColor!.toMap(),
     if (articleCapsuleBottomTextColor != null)
-      'articleCapsuleBottomTextColor':
-          articleCapsuleBottomTextColor!.toMap(),
+      'articleCapsuleBottomTextColor': articleCapsuleBottomTextColor!.toMap(),
     if (actionButtonBackgroundColor != null)
       'actionButtonBackgroundColor': actionButtonBackgroundColor!.toMap(),
     if (actionButtonTintColor != null)
       'actionButtonTintColor': actionButtonTintColor!.toMap(),
     if (flatplanImagePlaceholderColor != null)
-      'flatplanImagePlaceholderColor':
-          flatplanImagePlaceholderColor!.toMap(),
+      'flatplanImagePlaceholderColor': flatplanImagePlaceholderColor!.toMap(),
     if (flatplanSelectedBorderColor != null)
       'flatplanSelectedBorderColor': flatplanSelectedBorderColor!.toMap(),
     if (flatplanSelectedTitleTextColor != null)
-      'flatplanSelectedTitleTextColor':
-          flatplanSelectedTitleTextColor!.toMap(),
+      'flatplanSelectedTitleTextColor': flatplanSelectedTitleTextColor!.toMap(),
     if (flatplanTitleTextColor != null)
       'flatplanTitleTextColor': flatplanTitleTextColor!.toMap(),
     if (bottomSheetDragIndicatorColor != null)
-      'bottomSheetDragIndicatorColor':
-          bottomSheetDragIndicatorColor!.toMap(),
+      'bottomSheetDragIndicatorColor': bottomSheetDragIndicatorColor!.toMap(),
     if (bottomSheetBackgroundColor != null)
       'bottomSheetBackgroundColor': bottomSheetBackgroundColor!.toMap(),
     if (miniSummaryCellTitleTextColor != null)
-      'miniSummaryCellTitleTextColor':
-          miniSummaryCellTitleTextColor!.toMap(),
+      'miniSummaryCellTitleTextColor': miniSummaryCellTitleTextColor!.toMap(),
     if (miniSummaryCellPlaceholderColor != null)
-      'miniSummaryCellPlaceholderColor':
-          miniSummaryCellPlaceholderColor!.toMap(),
+      'miniSummaryCellPlaceholderColor': miniSummaryCellPlaceholderColor!
+          .toMap(),
     if (miniSummaryImagePlaceholderColor != null)
-      'miniSummaryImagePlaceholderColor':
-          miniSummaryImagePlaceholderColor!.toMap(),
+      'miniSummaryImagePlaceholderColor': miniSummaryImagePlaceholderColor!
+          .toMap(),
     if (miniSummarySeparatorColor != null)
       'miniSummarySeparatorColor': miniSummarySeparatorColor!.toMap(),
     if (flatplanTitleFont != null)

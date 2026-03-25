@@ -1,3 +1,5 @@
+// ignore_for_file: use-setstate-synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -97,6 +99,7 @@ class _HomePageState extends State<HomePage> {
   String _formatBytes(int bytes) {
     if (bytes < 1024) return '$bytes B';
     if (bytes < 1024 * 1024) return '${(bytes / 1024).toStringAsFixed(1)} KB';
+
     return '${(bytes / (1024 * 1024)).toStringAsFixed(2)} MB';
   }
 
@@ -105,16 +108,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text('FlutterMilibris Example')),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const .all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: .stretch,
           children: [
             ElevatedButton(
               onPressed: _loading ? null : _testExtraction,
               child: _loading
-                  ? const SizedBox(
-                      height: 20,
-                      width: 20,
+                  ? const SizedBox.square(
+                      dimension: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Text('Test Extraction'),
@@ -125,10 +127,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text('Open Reader'),
             ),
             const SizedBox(height: 24),
-            const Text(
-              'Status:',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
+            const Text('Status:', style: TextStyle(fontWeight: .bold)),
             const SizedBox(height: 8),
             SelectableText(_status),
           ],

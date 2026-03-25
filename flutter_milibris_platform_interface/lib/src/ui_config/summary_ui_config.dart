@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/navigation_bar_ui_config.dart';
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
@@ -106,22 +108,17 @@ class SummaryUIConfig {
   Map<String, dynamic> toMap() => {
     if (navigationBar != null) 'navigationBar': navigationBar!.toMap(),
     if (isFaceCropEnabled != null) 'isFaceCropEnabled': isFaceCropEnabled,
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (rubricBackgroundColor != null)
       'rubricBackgroundColor': rubricBackgroundColor!.toMap(),
-    if (rubricTextColor != null)
-      'rubricTextColor': rubricTextColor!.toMap(),
-    if (cellTitleColor != null)
-      'cellTitleColor': cellTitleColor!.toMap(),
+    if (rubricTextColor != null) 'rubricTextColor': rubricTextColor!.toMap(),
+    if (cellTitleColor != null) 'cellTitleColor': cellTitleColor!.toMap(),
     if (cellSubtitleColor != null)
       'cellSubtitleColor': cellSubtitleColor!.toMap(),
-    if (cellFooterColor != null)
-      'cellFooterColor': cellFooterColor!.toMap(),
+    if (cellFooterColor != null) 'cellFooterColor': cellFooterColor!.toMap(),
     if (imagePlaceholderColor != null)
       'imagePlaceholderColor': imagePlaceholderColor!.toMap(),
-    if (separatorColor != null)
-      'separatorColor': separatorColor!.toMap(),
+    if (separatorColor != null) 'separatorColor': separatorColor!.toMap(),
     if (selectedBackgroundColor != null)
       'selectedBackgroundColor': selectedBackgroundColor!.toMap(),
     if (overlayBackgroundColor != null)
@@ -132,8 +129,7 @@ class SummaryUIConfig {
       'cellPlaceholderColor': cellPlaceholderColor!.toMap(),
     if (rubricFont != null) 'rubricFont': rubricFont!.toMap(),
     if (cellTitleFont != null) 'cellTitleFont': cellTitleFont!.toMap(),
-    if (cellSubtitleFont != null)
-      'cellSubtitleFont': cellSubtitleFont!.toMap(),
+    if (cellSubtitleFont != null) 'cellSubtitleFont': cellSubtitleFont!.toMap(),
     if (cellFooterFont != null) 'cellFooterFont': cellFooterFont!.toMap(),
   };
 }

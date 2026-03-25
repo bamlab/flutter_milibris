@@ -1,7 +1,7 @@
 import 'package:flutter_milibris_platform_interface/flutter_milibris_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-class FlutterMilibrisMock extends FlutterMilibrisPlatform {
+class _FlutterMilibrisMock extends FlutterMilibrisPlatform {
   String? lastExtractArchivePath;
   String? lastExtractDestPath;
   String? lastOpenPath;
@@ -24,10 +24,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('FlutterMilibrisPlatformInterface', () {
-    late FlutterMilibrisMock flutterMilibrisPlatform;
+    late _FlutterMilibrisMock flutterMilibrisPlatform;
 
     setUp(() {
-      flutterMilibrisPlatform = FlutterMilibrisMock();
+      flutterMilibrisPlatform = _FlutterMilibrisMock();
       FlutterMilibrisPlatform.instance = flutterMilibrisPlatform;
     });
 

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for slideshow media boxes.
@@ -49,12 +51,10 @@ class SlideshowBoxUIConfig {
 
   /// Serializes this config to a map for cross-platform transport.
   Map<String, dynamic> toMap() => {
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (captionBackgroundColor != null)
       'captionBackgroundColor': captionBackgroundColor!.toMap(),
-    if (captionTextColor != null)
-      'captionTextColor': captionTextColor!.toMap(),
+    if (captionTextColor != null) 'captionTextColor': captionTextColor!.toMap(),
     if (currentPageIndicatorColor != null)
       'currentPageIndicatorColor': currentPageIndicatorColor!.toMap(),
     if (pageIndicatorColor != null)

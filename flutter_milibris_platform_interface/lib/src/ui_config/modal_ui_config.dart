@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for modal screens (e.g. search).
@@ -33,8 +35,7 @@ class ModalUIConfig {
   /// Serializes this config to a map for cross-platform transport.
   Map<String, dynamic> toMap() => {
     if (navigationBarBackgroundColor != null)
-      'navigationBarBackgroundColor':
-          navigationBarBackgroundColor!.toMap(),
+      'navigationBarBackgroundColor': navigationBarBackgroundColor!.toMap(),
     if (navigationBarButtonsTint != null)
       'navigationBarButtonsTint': navigationBarButtonsTint!.toMap(),
     if (navigationBarTitleTextColor != null)

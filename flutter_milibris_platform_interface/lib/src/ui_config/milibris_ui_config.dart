@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/alert_ui_config.dart';
 import 'package:flutter_milibris_platform_interface/src/ui_config/article_image_ui_config.dart';
 import 'package:flutter_milibris_platform_interface/src/ui_config/article_reader_ui_config.dart';
@@ -82,8 +84,7 @@ class MilibrisUIConfig {
     if (navigationBar != null) 'navigationBar': navigationBar!.toMap(),
     if (summary != null) 'summary': summary!.toMap(),
     if (articleReader != null) 'articleReader': articleReader!.toMap(),
-    if (articleSettings != null)
-      'articleSettings': articleSettings!.toMap(),
+    if (articleSettings != null) 'articleSettings': articleSettings!.toMap(),
     if (readerTutorial != null) 'readerTutorial': readerTutorial!.toMap(),
     if (slideshowBox != null) 'slideshowBox': slideshowBox!.toMap(),
     if (alert != null) 'alert': alert!.toMap(),

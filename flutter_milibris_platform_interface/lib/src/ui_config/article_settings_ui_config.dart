@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for the font/brightness settings panel in the article reader.
@@ -98,8 +100,7 @@ class ArticleSettingsUIConfig {
 
   /// Serializes this config to a map for cross-platform transport.
   Map<String, dynamic> toMap() => {
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (overlayBackgroundColor != null)
       'overlayBackgroundColor': overlayBackgroundColor!.toMap(),
     if (fontSizeEnabledColor != null)
@@ -111,8 +112,7 @@ class ArticleSettingsUIConfig {
     if (lineSpacingDisabledColor != null)
       'lineSpacingDisabledColor': lineSpacingDisabledColor!.toMap(),
     if (userInterfaceStyleBorderColor != null)
-      'userInterfaceStyleBorderColor':
-          userInterfaceStyleBorderColor!.toMap(),
+      'userInterfaceStyleBorderColor': userInterfaceStyleBorderColor!.toMap(),
     if (userInterfaceStyleBorderSelectedColor != null)
       'userInterfaceStyleBorderSelectedColor':
           userInterfaceStyleBorderSelectedColor!.toMap(),

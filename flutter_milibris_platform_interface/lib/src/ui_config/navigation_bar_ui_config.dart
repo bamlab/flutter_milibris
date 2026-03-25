@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for the reader navigation bar.
@@ -86,8 +88,7 @@ class NavigationBarUIConfig {
 
   /// Serializes this config to a map for cross-platform transport.
   Map<String, dynamic> toMap() => {
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (buttonTint != null) 'buttonTint': buttonTint!.toMap(),
     if (titleColor != null) 'titleColor': titleColor!.toMap(),
     if (subtitleColor != null) 'subtitleColor': subtitleColor!.toMap(),
@@ -97,8 +98,7 @@ class NavigationBarUIConfig {
       'progressBarFillColor': progressBarFillColor!.toMap(),
     if (logoBackgroundColor != null)
       'logoBackgroundColor': logoBackgroundColor!.toMap(),
-    if (logoBorderColor != null)
-      'logoBorderColor': logoBorderColor!.toMap(),
+    if (logoBorderColor != null) 'logoBorderColor': logoBorderColor!.toMap(),
     if (searchBarTint != null) 'searchBarTint': searchBarTint!.toMap(),
     if (logoImageName != null) 'logoImageName': logoImageName,
     if (titleFont != null) 'titleFont': titleFont!.toMap(),

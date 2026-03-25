@@ -1,3 +1,9 @@
+# 0.1.1
+
+- Added `MilibrisUIConfig` and all UI config classes.
+- Added `MilibrisColor` and `MilibrisFont` shared types.
+- `open` now accepts an optional `MilibrisUIConfig` parameter.
+
 # 0.1.0+1
 
-* Initial release.
+- Initial release.

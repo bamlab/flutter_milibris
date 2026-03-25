@@ -100,28 +100,28 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.0+1"
+    version: "0.1.1"
   flutter_milibris_android:
     dependency: "direct overridden"
     description:
       path: "../../flutter_milibris_android"
       relative: true
     source: path
-    version: "0.1.0+1"
+    version: "0.1.1"
   flutter_milibris_ios:
     dependency: "direct overridden"
     description:
       path: "../../flutter_milibris_ios"
       relative: true
     source: path
-    version: "0.1.0+1"
+    version: "0.1.1"
   flutter_milibris_platform_interface:
     dependency: "direct overridden"
     description:
       path: "../../flutter_milibris_platform_interface"
       relative: true
     source: path
-    version: "0.1.0+1"
+    version: "0.1.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter

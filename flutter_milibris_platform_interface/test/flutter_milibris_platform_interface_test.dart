@@ -5,6 +5,7 @@ class FlutterMilibrisMock extends FlutterMilibrisPlatform {
   String? lastExtractArchivePath;
   String? lastExtractDestPath;
   String? lastOpenPath;
+  MilibrisUIConfig? lastOpenConfig;
 
   @override
   Future<void> extractArchive(String tempPath, String destPath) async {
@@ -13,8 +14,9 @@ class FlutterMilibrisMock extends FlutterMilibrisPlatform {
   }
 
   @override
-  Future<void> open(String destPath) async {
+  Future<void> open(String destPath, [MilibrisUIConfig? uiConfig]) async {
     lastOpenPath = destPath;
+    lastOpenConfig = uiConfig;
   }
 }
 
@@ -47,9 +49,19 @@ void main() {
     });
 
     group('open', () {
-      test('calls implementation with correct argument', () async {
+      test('calls implementation with correct path', () async {
         await FlutterMilibrisPlatform.instance.open('/tmp/dest');
         expect(flutterMilibrisPlatform.lastOpenPath, equals('/tmp/dest'));
+        expect(flutterMilibrisPlatform.lastOpenConfig, isNull);
+      });
+
+      test('passes uiConfig to implementation', () async {
+        const config = MilibrisUIConfig(
+          reader: ReaderUIConfig(isSummaryEnabled: false),
+        );
+        await FlutterMilibrisPlatform.instance.open('/tmp/dest', config);
+        expect(flutterMilibrisPlatform.lastOpenPath, equals('/tmp/dest'));
+        expect(flutterMilibrisPlatform.lastOpenConfig, equals(config));
       });
     });
   });

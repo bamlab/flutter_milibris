@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark-mode color overrides are not needed here: all colors use
+     the _light/_dark suffix convention and are declared in
+     values/milibris_colors.xml. -->
+<resources/>

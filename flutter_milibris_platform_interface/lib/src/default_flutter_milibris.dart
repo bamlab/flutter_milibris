@@ -11,7 +11,7 @@ class DefaultFlutterMilibris extends FlutterMilibrisPlatform {
   }
 
   @override
-  Future<void> open(String destPath) {
+  Future<void> open(String destPath, [MilibrisUIConfig? uiConfig]) {
     throw UnimplementedError('open() has not been implemented.');
   }
 }

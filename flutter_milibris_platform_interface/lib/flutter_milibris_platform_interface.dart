@@ -1,5 +1,21 @@
 import 'package:flutter_milibris_platform_interface/src/default_flutter_milibris.dart';
+import 'package:flutter_milibris_platform_interface/src/ui_config/milibris_ui_config.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+
+export 'package:flutter_milibris_platform_interface/src/ui_config/alert_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/article_image_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/article_reader_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/article_settings_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/html_box_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/milibris_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/mini_summary_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/modal_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/navigation_bar_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/reader_tutorial_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/reader_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/slideshow_box_ui_config.dart';
+export 'package:flutter_milibris_platform_interface/src/ui_config/summary_ui_config.dart';
 
 /// {@template flutter_milibris_platform}
 /// The interface that implementations of flutter_milibris must implement.
@@ -33,9 +49,15 @@ abstract class FlutterMilibrisPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  /// Extract the archive and return the path to the extracted files.
+  /// Extracts a Milibris archive located at [tempPath] to [destPath].
+  ///
+  /// [tempPath] is the path to the `.complete` archive file.
+  /// [destPath] is the directory where the archive contents will be extracted.
   Future<void> extractArchive(String tempPath, String destPath);
 
-  /// Open the extracted files with the appropriate application.
-  Future<void> open(String destPath);
+  /// Opens the extracted Milibris content at [destPath] in the native reader.
+  ///
+  /// [destPath] is the path to the directory produced by [extractArchive].
+  /// [uiConfig] optionally customises the reader appearance and behaviour.
+  Future<void> open(String destPath, [MilibrisUIConfig? uiConfig]);
 }

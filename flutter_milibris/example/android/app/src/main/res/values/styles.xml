@@ -15,4 +15,11 @@
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+
+    <!-- Collapse the toolbar subtitle so the logo is vertically centered with
+         the close button. The subtitle text colour is already transparent, but
+         the TextView still occupies space unless its text size is 0. -->
+    <style name="ORTiny">
+        <item name="android:textSize">0sp</item>
+    </style>
 </resources>

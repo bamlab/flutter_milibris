@@ -1,3 +1,7 @@
+/// Shared types used across the Milibris platform interface.
+library;
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 /// An adaptive color with separate light and dark variants.
 ///
 /// Colors are ARGB32 integers (`0xAARRGGBB`), e.g. `0xFFFF1744` for opaque
@@ -6,11 +10,16 @@
 /// On Android, [light] maps to the light-mode XML resource and [dark] to the
 /// dark-mode resource. If [dark] is omitted, both resources use [light].
 ///
-/// On iOS, both values are combined into a single dynamic [UIColor] that
+/// On iOS, both values are combined into a single dynamic `UIColor` that
 /// automatically adapts to the system appearance.
 ///
-/// To create a [MilibrisColor] from a Flutter [Color], use the
-/// [MilibrisColorExtension.toMilibrisColor] extension on [Color].
+/// To create a [MilibrisColor] from a Flutter `Color`, use the
+/// `MilibrisColorExtension.toMilibrisColor` extension on `Color`.
+///
+/// Example:
+/// ```dart
+/// const color = MilibrisColor(0xFFFFFFFF, dark: 0xFF000000);
+/// ```
 class MilibrisColor {
   /// Creates an adaptive color.
   ///

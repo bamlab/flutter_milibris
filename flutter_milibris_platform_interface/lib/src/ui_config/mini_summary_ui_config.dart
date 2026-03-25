@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for the mini summary bottom sheet of the reader.
@@ -41,12 +43,10 @@ class MiniSummaryUIConfig {
   /// Serializes this config to a map for cross-platform transport.
   Map<String, dynamic> toMap() => {
     if (isFaceCropEnabled != null) 'isFaceCropEnabled': isFaceCropEnabled,
-    if (loadingTintColor != null)
-      'loadingTintColor': loadingTintColor!.toMap(),
+    if (loadingTintColor != null) 'loadingTintColor': loadingTintColor!.toMap(),
     if (cellTitleTextColor != null)
       'cellTitleTextColor': cellTitleTextColor!.toMap(),
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (separatorColor != null) 'separatorColor': separatorColor!.toMap(),
   };
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid-referencing-subclasses, no-object-declaration
+
 import 'package:flutter_milibris_platform_interface/src/default_flutter_milibris.dart';
 import 'package:flutter_milibris_platform_interface/src/ui_config/milibris_ui_config.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -44,9 +46,9 @@ abstract class FlutterMilibrisPlatform extends PlatformInterface {
   /// Platform-specific plugins should set this with their own platform-specific
   /// class that extends [FlutterMilibrisPlatform] when they register
   /// themselves.
-  static set instance(FlutterMilibrisPlatform instance) {
-    PlatformInterface.verify(instance, _token);
-    _instance = instance;
+  static set instance(FlutterMilibrisPlatform value) {
+    PlatformInterface.verify(value, _token);
+    _instance = value;
   }
 
   /// Extracts a Milibris archive located at [tempPath] to [destPath].

@@ -9,12 +9,12 @@
 //   android/app/src/main/res/values-night/milibris_colors.xml
 //
 // Commit both. Re-run whenever you change [milibrisUIConfig].
+// ignore_for_file: avoid-long-functions, no-magic-string, avoid-continue
+
 import 'dart:io';
 
 import 'package:flutter_milibris/flutter_milibris_config.dart';
-
-// ignore: avoid_relative_lib_imports
-import '../lib/milibris_example_config.dart';
+import 'package:flutter_milibris_example/milibris_example_config.dart';
 
 void main() {
   final root = _repoRoot();
@@ -30,7 +30,6 @@ void main() {
   );
 }
 
-// ignore: long-method
 ({String valuesXml, String valuesNightXml}) _toAndroidColorsXml(
   MilibrisUIConfig config,
 ) {
@@ -210,7 +209,7 @@ void main() {
   }
 
   applyArticleSettings(config.articleSettings);
-  applyArticleSettings(config.articleReader?.articleSettings);
+  applyArticleSettings(ar?.articleSettings);
 
   // ── Alert (top-level then articleReader.alert; latter takes precedence) ────
   beginSection('Alert');
@@ -223,7 +222,7 @@ void main() {
   }
 
   applyAlert(config.alert);
-  applyAlert(config.articleReader?.alert);
+  applyAlert(ar?.alert);
 
   // ── Reader tutorial ────────────────────────────────────────────────────────
   beginSection('Reader tutorial');
@@ -289,6 +288,7 @@ String _buildXml(List<_Section> sections, {required bool light}) {
         '<resources/>';
   }
   buffer.write('\n</resources>');
+
   return buffer.toString();
 }
 
@@ -300,6 +300,7 @@ String _hex(int argb) {
   final g = (argb >> 8) & 0xFF;
   final b = argb & 0xFF;
   String h(int v) => v.toRadixString(16).padLeft(2, '0').toUpperCase();
+
   return a == 0xFF ? '#${h(r)}${h(g)}${h(b)}' : '#${h(a)}${h(r)}${h(g)}${h(b)}';
 }
 
@@ -315,6 +316,7 @@ String _repoRoot() {
     if (parent.path == dir.path) throw StateError('pubspec.yaml not found');
     dir = parent;
   }
+
   return dir.path;
 }
 

@@ -1,3 +1,5 @@
+// ignore_for_file: no-magic-string
+
 import 'package:flutter_milibris/flutter_milibris_config.dart';
 
 /// Builds the Milibris UI config for the example app.

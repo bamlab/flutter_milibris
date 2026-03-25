@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for the reader onboarding tutorial.
@@ -102,16 +104,14 @@ class ReaderTutorialUIConfig {
     if (pageIndicatorColor != null)
       'pageIndicatorColor': pageIndicatorColor!.toMap(),
     if (articleCapsuleBackgroundColor != null)
-      'articleCapsuleBackgroundColor':
-          articleCapsuleBackgroundColor!.toMap(),
+      'articleCapsuleBackgroundColor': articleCapsuleBackgroundColor!.toMap(),
     if (articleCapsuleTextColor != null)
       'articleCapsuleTextColor': articleCapsuleTextColor!.toMap(),
     if (titleFontBigPhone != null)
       'titleFontBigPhone': titleFontBigPhone!.toMap(),
     if (titleFontBigTablet != null)
       'titleFontBigTablet': titleFontBigTablet!.toMap(),
-    if (titleFontRegular != null)
-      'titleFontRegular': titleFontRegular!.toMap(),
+    if (titleFontRegular != null) 'titleFontRegular': titleFontRegular!.toMap(),
     if (descriptionFont != null) 'descriptionFont': descriptionFont!.toMap(),
     if (skipButtonFont != null) 'skipButtonFont': skipButtonFont!.toMap(),
     if (articleCapsuleFont != null)

@@ -23,25 +23,23 @@ void main() {
   }
 
   FfiGenerator(
-    output: Output(
-      dartFile: Uri.parse('lib/flutter_milibris_bindings.g.dart'),
-    ),
+    output: Output(dartFile: Uri.parse('lib/flutter_milibris_bindings.g.dart')),
     headers: Headers(
       entryPoints: [Uri.file(header)],
       include: (uri) => uri.path.endsWith('MLArchive.h'),
     ),
-    objectiveC: ObjectiveC(
-      interfaces: Interfaces.includeSet({'MLArchive'}),
-    ),
+    objectiveC: ObjectiveC(interfaces: Interfaces.includeSet({'MLArchive'})),
   ).generate();
 }
 
 /// Checks the local SPM build cache (populated by `swift package resolve`).
 String? _findLocalHeader() {
-  const path = 'ios/.build/artifacts'
+  const path =
+      'ios/.build/artifacts'
       '/ios-milibris-reader-sdk/MiLibrisReaderSDK'
       '/MiLibrisReaderSDK.xcframework'
       '/ios-arm64/MiLibrisReaderSDK.framework/Headers/MLArchive.h';
+
   return File(path).existsSync() ? path : null;
 }
 
@@ -56,5 +54,6 @@ String? _findDerivedDataHeader() {
     '*/ios-arm64/MiLibrisReaderSDK.framework/Headers/*',
   ]);
   final path = result.stdout.toString().trim().split('\n').firstOrNull;
+
   return (path != null && path.isNotEmpty) ? path : null;
 }

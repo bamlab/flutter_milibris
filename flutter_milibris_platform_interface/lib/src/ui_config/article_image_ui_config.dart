@@ -1,3 +1,5 @@
+// ignore_for_file: prefer-null-aware-elements, avoid-non-null-assertion
+
 import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.dart';
 
 /// Config for the full-screen article image viewer.
@@ -5,10 +7,7 @@ import 'package:flutter_milibris_platform_interface/src/ui_config/shared_types.d
 /// iOS only.
 class ArticleImageUIConfig {
   /// Creates an article image UI config.
-  const ArticleImageUIConfig({
-    this.backgroundColor,
-    this.buttonTint,
-  });
+  const ArticleImageUIConfig({this.backgroundColor, this.buttonTint});
 
   /// The background color. iOS only.
   ///
@@ -22,8 +21,7 @@ class ArticleImageUIConfig {
 
   /// Serializes this config to a map for cross-platform transport.
   Map<String, dynamic> toMap() => {
-    if (backgroundColor != null)
-      'backgroundColor': backgroundColor!.toMap(),
+    if (backgroundColor != null) 'backgroundColor': backgroundColor!.toMap(),
     if (buttonTint != null) 'buttonTint': buttonTint!.toMap(),
   };
 }

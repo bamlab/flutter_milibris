@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Navigation bar -->
+    <color name="or_toolbar_background_color_light">#FFFFFF</color>
+    <color name="or_toolbar_background_color_dark">#1C1C1E</color>
+    <color name="or_toolbar_subtitle_text_light">#00000000</color>
+    <color name="or_toolbar_subtitle_text_dark">#00000000</color>
+    <color name="or_logo_capsule_color_light">#FFFFFF</color>
+    <color name="or_logo_capsule_color_dark">#FFFFFF</color>
+
+    <!-- Article reader -->
+    <color name="or_articles_bottom_button_background_light">#FFFFFF</color>
+    <color name="or_articles_bottom_button_background_dark">#1C1C1E</color>
+</resources>

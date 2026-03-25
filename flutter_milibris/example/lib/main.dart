@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_milibris/flutter_milibris.dart';
+import 'package:flutter_milibris_example/milibris_example_config.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() => runApp(const MyApp());
@@ -84,7 +85,7 @@ class _HomePageState extends State<HomePage> {
       _status = 'Opening reader…';
     });
     try {
-      await FlutterMilibris.open(dest);
+      await FlutterMilibris.open(dest, milibrisUIConfig);
       setState(() => _status = 'Reader opened.');
     } on Exception catch (e) {
       setState(() => _status = 'Error: $e');

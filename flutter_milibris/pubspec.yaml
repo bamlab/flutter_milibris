@@ -1,7 +1,7 @@
 name: flutter_milibris
 description: >-
   A Flutter plugin that bridges Milibris SDKs, enabling encrypted archive
-version: 0.2.0
+version: 0.2.1
 homepage: https://github.com/bamlab/flutter_milibris
 repository: https://github.com/bamlab/flutter_milibris
 
@@ -12,9 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_milibris_android: ^0.2.0
-  flutter_milibris_ios: ^0.2.0
-  flutter_milibris_platform_interface: ^0.2.0
+  flutter_milibris_android: ^0.2.1
+  flutter_milibris_ios: ^0.2.1
+  flutter_milibris_platform_interface: ^0.2.1
 
 dev_dependencies:
   flutter_test:

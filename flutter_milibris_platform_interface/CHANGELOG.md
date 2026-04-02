@@ -1,3 +1,7 @@
+# 0.2.1
+
+- Bumped `flutter_milibris_platform_interface` dependency lower bound.
+
 # 0.2.0
 
 - Version bump only — no platform interface changes.

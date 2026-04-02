@@ -1,3 +1,7 @@
+# 0.2.0
+
+- Version bump only — no platform interface changes.
+
 # 0.1.1
 
 - Added `MilibrisUIConfig` and all UI config classes.

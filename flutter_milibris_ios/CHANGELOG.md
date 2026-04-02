@@ -1,3 +1,7 @@
+# 0.2.0
+
+- Version bump only — no iOS-specific changes.
+
 # 0.1.1
 
 - Added support for `MilibrisUIConfig`: colors, fonts, and feature flags are now forwarded to the iOS reader at runtime via `ReaderConfigMapper`.

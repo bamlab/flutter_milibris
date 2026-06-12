@@ -201,6 +201,43 @@ MilibrisFont(name: 'Georgia', size: 16, bold: false)
 MilibrisFont(size: 14)  // system font at 14 pt
 ```
 
+#### Brand font families (iOS only)
+
+To restyle the whole article reader at once, pass `primaryFont`, `secondaryFont`,
+and/or `tertiaryFont` on `ArticleReaderUIConfig`. These map to the SDK's
+`applyPrimaryFont` / `applySecondaryFont` / `applyTertiaryFont` convenience
+methods, which bulk-apply a family across the reader's titles, paragraphs, and
+related styles. Only `regular` is required; heavier weights fall back to the
+SDK default when omitted.
+
+```dart
+ArticleReaderUIConfig(
+  primaryFont: MilibrisPrimaryFont(
+    regular: 'LibeSans-Regular',
+    black: 'LibeSans-Black',
+    bold: 'LibeSans-Bold',
+  ),
+  secondaryFont: MilibrisSecondaryFont(regular: 'Georgia'),
+  tertiaryFont: MilibrisTertiaryFont(regular: 'Georgia'),
+)
+```
+
+Brand families are applied **before** any per-element font or text override, so
+the granular fields below always win over the family defaults.
+
+#### Inline paragraph runs (iOS only)
+
+Override the fonts used for inline markup inside paragraphs:
+
+```dart
+ArticleReaderUIConfig(
+  paragraphBoldFont: MilibrisFont(name: 'Georgia-Bold', size: 18),    // <b>
+  paragraphStrongFont: MilibrisFont(name: 'Georgia-Bold', size: 18),  // <strong>
+  paragraphItalicFont: MilibrisFont(name: 'Georgia-Italic', size: 18),// <i>
+  paragraphEmphasisFont: MilibrisFont(name: 'Georgia-Italic', size: 18),// <em>
+)
+```
+
 ### Text styles (iOS only)
 
 Text elements in `ArticleReaderUIConfig` accept a `MilibrisTextConfig` combining color, font, and line spacing:

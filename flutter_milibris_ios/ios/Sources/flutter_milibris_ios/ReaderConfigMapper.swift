@@ -232,10 +232,21 @@ private func applyArticleReader(
   if let c = color(d["nextArticleArrowColor"]) {
     articleReader.colors.nextArticleArrow = c
   }
+  // Brand font families. Applied FIRST because applyXFont bulk-overwrites many
+  // font/text fields; the granular overrides below must win over them.
+  applyFontFamilies(d, to: &articleReader)
   // Fonts
   if let f = fontInfo(d["fisheyeLabelFont"]) { articleReader.fonts.fisheyeLabel = f }
   if let f = fontInfo(d["bottomBarFont"]) { articleReader.fonts.bottomBar = f }
   if let f = fontInfo(d["rubricFont"]) { articleReader.fonts.rubric = f }
+  if let f = fontInfo(d["paragraphBoldFont"]) { articleReader.fonts.paragraphB = f }
+  if let f = fontInfo(d["paragraphStrongFont"]) {
+    articleReader.fonts.paragraphStrong = f
+  }
+  if let f = fontInfo(d["paragraphItalicFont"]) { articleReader.fonts.paragraphI = f }
+  if let f = fontInfo(d["paragraphEmphasisFont"]) {
+    articleReader.fonts.paragraphEm = f
+  }
   // Text configs
   if let t = textConfig(d["paragraph"]) { articleReader.text.paragraph = t }
   if let t = textConfig(d["interTitle"]) { articleReader.text.intertitlePhone = t }
@@ -262,6 +273,54 @@ private func applyArticleReader(
   }
   if let t = textConfig(d["interviewAnswer"]) {
     articleReader.text.interviewAnswer = t
+  }
+}
+
+/// Applies the primary/secondary/tertiary brand font families via the SDK's
+/// `applyXFont` convenience methods.
+///
+/// Each method throws if a font name does not resolve to a registered family;
+/// we log and skip that family rather than aborting the whole config.
+private func applyFontFamilies(
+  _ d: [String: Any],
+  to articleReader: inout ArticleReaderConfig
+) {
+  if let f = d["primaryFont"] as? [String: Any],
+     let regular = f["regular"] as? String {
+    do {
+      try articleReader.applyPrimaryFont(
+        regularFontName: regular,
+        blackFontName: f["black"] as? String,
+        boldFontName: f["bold"] as? String
+      )
+    } catch {
+      NSLog("flutter_milibris: applyPrimaryFont failed: \(error)")
+    }
+  }
+  if let f = d["secondaryFont"] as? [String: Any],
+     let regular = f["regular"] as? String {
+    do {
+      try articleReader.applySecondaryFont(
+        regularFontName: regular,
+        mediumFontName: f["medium"] as? String,
+        semiBoldFontName: f["semiBold"] as? String
+      )
+    } catch {
+      NSLog("flutter_milibris: applySecondaryFont failed: \(error)")
+    }
+  }
+  if let f = d["tertiaryFont"] as? [String: Any],
+     let regular = f["regular"] as? String {
+    do {
+      try articleReader.applyTertiaryFont(
+        regularFontName: regular,
+        blackFontName: f["black"] as? String,
+        boldFontName: f["bold"] as? String,
+        italicFontName: f["italic"] as? String
+      )
+    } catch {
+      NSLog("flutter_milibris: applyTertiaryFont failed: \(error)")
+    }
   }
 }
 

@@ -1,3 +1,7 @@
+# 0.2.2
+
+- Bumped `flutter_milibris_platform_interface` dependency to `^0.2.2`. The new article reader font options are iOS-only and have no Android runtime effect.
+
 # 0.2.1
 
 - Bumped `flutter_milibris_platform_interface` dependency to `^0.2.0`.

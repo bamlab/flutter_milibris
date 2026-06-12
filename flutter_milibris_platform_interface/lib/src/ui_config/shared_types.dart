@@ -73,6 +73,99 @@ class MilibrisFont {
   };
 }
 
+/// The primary brand font family for the article reader.
+///
+/// Maps to `ArticleReaderConfig.applyPrimaryFont` on iOS, which bulk-applies
+/// these named fonts across the article reader's title, paragraph, and related
+/// styles. iOS only at runtime — no effect on Android.
+///
+/// [regular] is required; the heavier weights fall back to the SDK defaults
+/// when omitted. Each value is a registered font family name (the same string
+/// you would pass to `UIFont(name:size:)`).
+class MilibrisPrimaryFont {
+  /// Creates a primary font family.
+  const MilibrisPrimaryFont({required this.regular, this.black, this.bold});
+
+  /// The regular-weight font family name.
+  final String regular;
+
+  /// The black-weight font family name.
+  final String? black;
+
+  /// The bold-weight font family name.
+  final String? bold;
+
+  /// Serializes this font family to a map for cross-platform transport.
+  Map<String, dynamic> toMap() => {
+    'regular': regular,
+    if (black != null) 'black': black,
+    if (bold != null) 'bold': bold,
+  };
+}
+
+/// The secondary brand font family for the article reader.
+///
+/// Maps to `ArticleReaderConfig.applySecondaryFont` on iOS. iOS only at
+/// runtime — no effect on Android.
+class MilibrisSecondaryFont {
+  /// Creates a secondary font family.
+  const MilibrisSecondaryFont({
+    required this.regular,
+    this.medium,
+    this.semiBold,
+  });
+
+  /// The regular-weight font family name.
+  final String regular;
+
+  /// The medium-weight font family name.
+  final String? medium;
+
+  /// The semi-bold-weight font family name.
+  final String? semiBold;
+
+  /// Serializes this font family to a map for cross-platform transport.
+  Map<String, dynamic> toMap() => {
+    'regular': regular,
+    if (medium != null) 'medium': medium,
+    if (semiBold != null) 'semiBold': semiBold,
+  };
+}
+
+/// The tertiary brand font family for the article reader.
+///
+/// Maps to `ArticleReaderConfig.applyTertiaryFont` on iOS. iOS only at
+/// runtime — no effect on Android.
+class MilibrisTertiaryFont {
+  /// Creates a tertiary font family.
+  const MilibrisTertiaryFont({
+    required this.regular,
+    this.black,
+    this.bold,
+    this.italic,
+  });
+
+  /// The regular-weight font family name.
+  final String regular;
+
+  /// The black-weight font family name.
+  final String? black;
+
+  /// The bold-weight font family name.
+  final String? bold;
+
+  /// The italic-style font family name.
+  final String? italic;
+
+  /// Serializes this font family to a map for cross-platform transport.
+  Map<String, dynamic> toMap() => {
+    'regular': regular,
+    if (black != null) 'black': black,
+    if (bold != null) 'bold': bold,
+    if (italic != null) 'italic': italic,
+  };
+}
+
 /// Combined color + font + line spacing for a text element.
 ///
 /// iOS only at runtime. Android equivalent is a `TextAppearance` XML style.

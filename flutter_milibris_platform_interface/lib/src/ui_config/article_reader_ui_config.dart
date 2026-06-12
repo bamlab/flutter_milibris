@@ -41,6 +41,13 @@ class ArticleReaderUIConfig {
     this.fisheyeLabelFont,
     this.bottomBarFont,
     this.rubricFont,
+    this.paragraphBoldFont,
+    this.paragraphStrongFont,
+    this.paragraphItalicFont,
+    this.paragraphEmphasisFont,
+    this.primaryFont,
+    this.secondaryFont,
+    this.tertiaryFont,
     this.paragraph,
     this.interTitle,
     this.title,
@@ -166,6 +173,35 @@ class ArticleReaderUIConfig {
   /// The font for rubric views. iOS only.
   final MilibrisFont? rubricFont;
 
+  /// The font for `<b>` tags in paragraphs (bold inline runs). iOS only.
+  final MilibrisFont? paragraphBoldFont;
+
+  /// The font for `<strong>` tags in paragraphs (strong inline runs). iOS only.
+  final MilibrisFont? paragraphStrongFont;
+
+  /// The font for `<i>` tags in paragraphs (italic inline runs). iOS only.
+  final MilibrisFont? paragraphItalicFont;
+
+  /// The font for `<em>` tags in paragraphs (emphasis inline runs). iOS only.
+  final MilibrisFont? paragraphEmphasisFont;
+
+  /// The primary brand font family for the article reader.
+  ///
+  /// Applied via `applyPrimaryFont` before any individual font/text overrides,
+  /// so per-element configs (e.g. [paragraph], [paragraphBoldFont]) still win.
+  /// iOS only.
+  final MilibrisPrimaryFont? primaryFont;
+
+  /// The secondary brand font family for the article reader.
+  ///
+  /// Applied via `applySecondaryFont` before individual overrides. iOS only.
+  final MilibrisSecondaryFont? secondaryFont;
+
+  /// The tertiary brand font family for the article reader.
+  ///
+  /// Applied via `applyTertiaryFont` before individual overrides. iOS only.
+  final MilibrisTertiaryFont? tertiaryFont;
+
   /// Text config for paragraphs. iOS only.
   final MilibrisTextConfig? paragraph;
 
@@ -267,6 +303,17 @@ class ArticleReaderUIConfig {
     if (fisheyeLabelFont != null) 'fisheyeLabelFont': fisheyeLabelFont!.toMap(),
     if (bottomBarFont != null) 'bottomBarFont': bottomBarFont!.toMap(),
     if (rubricFont != null) 'rubricFont': rubricFont!.toMap(),
+    if (paragraphBoldFont != null)
+      'paragraphBoldFont': paragraphBoldFont!.toMap(),
+    if (paragraphStrongFont != null)
+      'paragraphStrongFont': paragraphStrongFont!.toMap(),
+    if (paragraphItalicFont != null)
+      'paragraphItalicFont': paragraphItalicFont!.toMap(),
+    if (paragraphEmphasisFont != null)
+      'paragraphEmphasisFont': paragraphEmphasisFont!.toMap(),
+    if (primaryFont != null) 'primaryFont': primaryFont!.toMap(),
+    if (secondaryFont != null) 'secondaryFont': secondaryFont!.toMap(),
+    if (tertiaryFont != null) 'tertiaryFont': tertiaryFont!.toMap(),
     if (paragraph != null) 'paragraph': paragraph!.toMap(),
     if (interTitle != null) 'interTitle': interTitle!.toMap(),
     if (title != null) 'title': title!.toMap(),

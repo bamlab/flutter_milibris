@@ -47,5 +47,17 @@ const milibrisUIConfig = MilibrisUIConfig(
     rubricBackgroundOverPrimeImageColor: MilibrisColor(0xFFFF0000),
     rubricTextOverPrimeImageColor: MilibrisColor(0xFFFFFFFF),
     bottomBarBackgroundColor: MilibrisColor(0xFFFFFFFF, dark: 0xFF1C1C1E),
+    // Brand font families (iOS only). Applied before the per-element overrides
+    // below, so those still take precedence.
+    primaryFont: MilibrisPrimaryFont(
+      regular: 'LibeSans-Regular',
+      black: 'LibeSans-Black',
+      bold: 'LibeSans-Bold',
+    ),
+    secondaryFont: MilibrisSecondaryFont(regular: 'Georgia'),
+    tertiaryFont: MilibrisTertiaryFont(regular: 'Georgia'),
+    // Inline-run fonts within paragraphs (iOS only).
+    paragraphBoldFont: MilibrisFont(name: 'Georgia-Bold', size: 18),
+    paragraphStrongFont: MilibrisFont(name: 'Georgia-Bold', size: 18),
   ),
 );

@@ -1,3 +1,9 @@
+# 0.2.2
+
+- Applied article reader brand font families via the SDK's `applyPrimaryFont`, `applySecondaryFont`, and `applyTertiaryFont` methods (applied before per-element overrides so those still take precedence).
+- Mapped paragraph inline run fonts to `fonts.paragraphB`, `fonts.paragraphStrong`, `fonts.paragraphI`, and `fonts.paragraphEm`.
+- Bumped `flutter_milibris_platform_interface` dependency to `^0.2.2`.
+
 # 0.2.1
 
 - Bumped `flutter_milibris_platform_interface` dependency to `^0.2.1`.

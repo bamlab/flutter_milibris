@@ -1,3 +1,8 @@
+## 0.2.2
+
+- Exposed article reader font customisation on `ArticleReaderUIConfig`: brand font families (`MilibrisPrimaryFont`, `MilibrisSecondaryFont`, `MilibrisTertiaryFont`) and inline paragraph run fonts (`paragraphBoldFont`, `paragraphStrongFont`, `paragraphItalicFont`, `paragraphEmphasisFont`). iOS only at runtime.
+- Bumped dependencies to `^0.2.2`.
+
 ## 0.2.1
 
 - Bumped dependencies to `^0.2.1`.

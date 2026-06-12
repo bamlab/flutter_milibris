@@ -1,3 +1,8 @@
+# 0.2.2
+
+- Added article reader brand font families: `MilibrisPrimaryFont`, `MilibrisSecondaryFont`, and `MilibrisTertiaryFont`.
+- Added inline paragraph run font overrides to `ArticleReaderUIConfig`: `paragraphBoldFont`, `paragraphStrongFont`, `paragraphItalicFont`, and `paragraphEmphasisFont`.
+
 # 0.2.1
 
 - Bumped `flutter_milibris_platform_interface` dependency lower bound.

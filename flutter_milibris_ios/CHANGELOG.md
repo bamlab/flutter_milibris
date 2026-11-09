@@ -1,3 +1,8 @@
+# 0.2.3
+
+- Bumped `flutter_milibris_platform_interface` dependency to `^0.2.3`.
+- Added `articlesLanguageCode` to reader config (iOS): fixes iOS not showing the text to speech button when the `articlesLanguageCode` is unset on the iOS SDK.
+
 # 0.2.2
 
 - Applied article reader brand font families via the SDK's `applyPrimaryFont`, `applySecondaryFont`, and `applyTertiaryFont` methods (applied before per-element overrides so those still take precedence).

@@ -1,3 +1,7 @@
+# 0.2.3
+
+- Added `articlesLanguageCode` to reader config (iOS): fixes iOS not showing the text to speech button when the `articlesLanguageCode` is unset on the iOS SDK.
+
 # 0.2.2
 
 - Added article reader brand font families: `MilibrisPrimaryFont`, `MilibrisSecondaryFont`, and `MilibrisTertiaryFont`.

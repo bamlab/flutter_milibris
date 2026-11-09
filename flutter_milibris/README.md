@@ -267,6 +267,10 @@ Feature flags in `ReaderUIConfig` apply on both platforms at runtime:
 | `showReaderTutorials`      | Show the first-launch tutorial (Android only) |
 | `debugBoxes`               | Overlay article box boundaries                |
 
+### Text-to-speech
+
+Enable it with `ArticleReaderUIConfig(isTextToSpeechEnabled: true)`. On iOS, the SDK only shows the button when it knows the articles language, so also set `MilibrisUIConfig(articlesLanguageCode: 'fr-FR')`.
+
 ### Platform behaviour
 
 **iOS** — colors and fonts passed in the config are applied at runtime by the SDK.

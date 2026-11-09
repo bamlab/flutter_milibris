@@ -40,6 +40,7 @@ class MilibrisUIConfig {
     this.articleImage,
     this.htmlBox,
     this.modal,
+    this.articlesLanguageCode,
   });
 
   /// Top-level reader feature flags and colours.
@@ -78,6 +79,11 @@ class MilibrisUIConfig {
   /// Modal screens (e.g. search). iOS only.
   final ModalUIConfig? modal;
 
+  /// Language of the articles, e.g. `'fr-FR'`. iOS only.
+  ///
+  /// The SDK hides the text-to-speech button when it is not set.
+  final String? articlesLanguageCode;
+
   /// Serializes this config to a map for cross-platform transport.
   Map<String, dynamic> toMap() => {
     if (reader != null) 'reader': reader!.toMap(),
@@ -92,5 +98,7 @@ class MilibrisUIConfig {
     if (articleImage != null) 'articleImage': articleImage!.toMap(),
     if (htmlBox != null) 'htmlBox': htmlBox!.toMap(),
     if (modal != null) 'modal': modal!.toMap(),
+    if (articlesLanguageCode != null)
+      'articlesLanguageCode': articlesLanguageCode,
   };
 }

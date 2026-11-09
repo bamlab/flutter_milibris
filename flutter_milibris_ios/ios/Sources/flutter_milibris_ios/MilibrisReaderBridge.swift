@@ -19,18 +19,22 @@ public func milibrisOpenReaderWithConfig(
 ) {
   let releasePath = String(cString: releasePathPtr)
   var readerConfig = ReaderConfig()
+  var articlesLanguageCode: LanguageCode?
 
   if let configJsonPtr,
      let data = String(cString: configJsonPtr).data(using: .utf8),
      let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
     applyUIConfig(dict, to: &readerConfig)
+    if let rawValue = dict["articlesLanguageCode"] as? String {
+      articlesLanguageCode = LanguageCode(rawValue: rawValue)
+    }
   }
 
   Task { @MainActor in
     let releaseUrl = URL(fileURLWithPath: releasePath)
     let reader = Reader(
       releasePath: releaseUrl,
-      articlesLanguageCode: nil,
+      articlesLanguageCode: articlesLanguageCode,
       config: readerConfig
     )
 
